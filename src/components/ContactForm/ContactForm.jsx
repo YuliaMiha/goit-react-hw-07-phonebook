@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
@@ -88,6 +87,3 @@ export const ContactForm = () => {
   );
 };
 export default ContactForm;
-ContactForm.propTypes = {
-  onAddContact: PropTypes.func.isRequired,
-};
