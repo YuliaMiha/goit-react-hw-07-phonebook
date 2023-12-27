@@ -1,4 +1,4 @@
-import { selectContacts } from '../contact/contactSelector';
+import { selectContacts } from './contactSelector';
 
 export const selectFilter = state => state.filter;
 export const selectFilteredContacts = state => {

@@ -4,8 +4,9 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectContacts } from '../../redux/contact/contactSelector';
-import { addContactsAction } from '../../redux/contact/contactSlice';
+import { selectContacts } from '../../redux/contactSelector';
+
+import { addContactsThunk } from '../../redux/contactsThunk';
 
 export const ContactForm = () => {
   const [name, setName] = useState('');
@@ -37,10 +38,9 @@ export const ContactForm = () => {
     ) {
       return alert(`${name} already exists`);
     }
-    dispatch(addContactsAction(newContact));
+    dispatch(addContactsThunk(newContact));
     handleReset();
   };
-
   
 
   const handleReset = () => {
