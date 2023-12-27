@@ -1,7 +1,5 @@
 import { useState } from 'react';
 import React from 'react';
-
-import { nanoid } from 'nanoid';
 import css from './ContactForm.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectContacts } from '../../redux/contactSelector';
@@ -28,7 +26,7 @@ export const ContactForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    const newContact = { name, number, id: nanoid() };
+    const newContact = { name, number };
     if (
       contacts.some(
         contact =>
@@ -47,16 +45,13 @@ export const ContactForm = () => {
     console.log(Object.values(actions));
     Object.values(actions).map(item => item(''));
   };
-  const nameInputId = nanoid();
-  const numberInputId = nanoid();
 
   return (
     <form className={css.form} action="" onSubmit={handleSubmit}>
-      <label htmlFor={nameInputId} className={css.form__label}>
+      <label  className={css.form__label}>
         Name
       </label>
       <input
-        id={nameInputId}
         onChange={handleChange}
         name="name"
         value={name}
@@ -66,11 +61,10 @@ export const ContactForm = () => {
         required
         className={css.form__input}
       />
-      <label htmlFor={numberInputId} className={css.form__label}>
+      <label  className={css.form__label}>
         Number
       </label>
       <input
-        id={numberInputId}
         onChange={handleChange}
         name="number"
         value={number}
